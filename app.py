@@ -100,21 +100,21 @@ def get_conversation_chain(vectorstore):
 def handle_chat_conversation(user_input):
 
     #Get the AI Conversation Object
-    response = st.session_state.conversationObj({'question':user_input})
+    response = st.session_state.conversationObj({'question' : user_input})
 
     #print(response)
 
     #update the chat history and display to user
-    st.session_state.chat_history = response['question']
+    st.session_state.chat_history = response['chat_history']
  
-    for i,message in enumerate(st.session_state.chat_history):
+    for i, message in enumerate(st.session_state.chat_history):
 
         #even numbers belong to user input messages
         if i % 2 == 0:
-            st.write(user_template.replace("{{MSG}}",message.content), unsafe_allow_html=True)
+            st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
         else:
             #AI generated messages
-            st.write(bot_template.replace("{{MSG}}",message.content), unsafe_allow_html=True)
+            st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
 
 
 
@@ -135,6 +135,7 @@ def main():
     #initialize the persistant global (session state) variables
     if "conversationObj" not in st.session_state:
         st.session_state.conversationObj = None
+        
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = None
 
