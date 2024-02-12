@@ -18,11 +18,12 @@ pip install -U langchain-community faiss-cpu langchain-openai tiktoken
 ```
 Note that you can also install faiss-gpu if you want to use the GPU enabled version
 
-NOT SURE ABOUT THIS...
-```
-pip install langchain-community==0.0.11 pypdf==3.17.4 langchain==0.1.0 python-dotenv==1.0.0 langchain-openai==0.0.2.post1 faiss-cpu==1.7.4 tiktoken==0.5.2 langchainhub==0.1.14
-```
 
+To create embeddings (instead of openai) using open-source model Instructor with huggingface
+you need to install this dependencies
+```
+pip install InstructorEmbedding sentence_transformers==2.2.2
+```
 
 
 to run the app:
@@ -51,3 +52,10 @@ Pydantic was added to solve issues with langchain running in python<3.9
 pip install pydantic==1.10.8
 ```
 
+
+
+
+NOT SURE ABOUT THIS...
+```
+pip install langchain-community==0.0.11 pypdf==3.17.4 langchain==0.1.0 python-dotenv==1.0.0 langchain-openai==0.0.2.post1 faiss-cpu==1.7.4 tiktoken==0.5.2 langchainhub==0.1.14
+```
